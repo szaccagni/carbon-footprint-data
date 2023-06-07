@@ -6,7 +6,7 @@ connectDB();
 export default async (req, res) => {
   try {
     const data = await Footprint.find()
-    res.json('hi')
+    res.json(data[0])
   } catch (error) {
     console.error('Error retrieving data', error);
     res.status(500).json({ error: 'Error retrieving data' });
