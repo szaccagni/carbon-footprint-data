@@ -6,7 +6,11 @@ connectDB();
 export default async (req, res) => {
   try {
     const footprint = await Footprint.find({zipCode: req.query.zip})
-    res.json(footprint)
+    if (footprint.length > 0) {
+      res.json(footprint)
+    } else {
+      res.status(404).json({error: 'zip code not found'})
+    }
     // const data = await Footprint.find()
     // res.json(data[0])
   } catch (error) {
