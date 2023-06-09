@@ -4,13 +4,12 @@ import connectDB from '../../db'
 connectDB();
 
 export default async (req, res) => {
-  // const allowedOrigins = ['http://localhost:3000', 'https://carbon-footprint-calc.vercel.app']
-  // const origin = req.headers.origin
-  // const origin = 'https://carbon-footprint-calc.vercel.app'
-  // if (allowedOrigins.includes(origin)) {
-  //   res.setHeader('Access-Control-Allow-Origin', origin);
-  // }
-  res.setHeader('Access-Control-Allow-Origin', 'https://carbon-footprint-calc.vercel.app')
+  const allowedOrigins = ['http://localhost:3000', 'https://carbon-footprint-calc.vercel.app']
+  const origin = req.headers.origin
+  if (allowedOrigins.includes(origin)) {
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  // res.setHeader('Access-Control-Allow-Origin', 'https://carbon-footprint-calc.vercel.app')
 
   try {
     const footprint = await Footprint.find({zipCode: req.query.zip})
