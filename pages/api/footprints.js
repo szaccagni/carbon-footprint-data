@@ -17,7 +17,7 @@ export default async (req, res) => {
     // res.json(data[0])
   } catch (error) {
     console.error('Error retrieving data', error);
-    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000', 'https://carbon-footprint-calc.vercel.app/');
     res.status(500).json({ error: 'Error retrieving data' });
   }
 };
