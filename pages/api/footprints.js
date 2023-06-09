@@ -5,8 +5,8 @@ connectDB();
 
 export default async (req, res) => {
   const allowedOrigins = ['http://localhost:3000', 'https://carbon-footprint-calc.vercel.app']
-  const origin = req.headers.origin
-  console.log(origin)
+  // const origin = req.headers.origin
+  const origin = 'https://carbon-footprint-calc.vercel.app'
   if (allowedOrigins.includes(origin)) {
     res.setHeader('Access-Control-Allow-Origin', origin);
   }
